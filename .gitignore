@@ -1,8 +1,9 @@
 
-__pycache__/
+**__pycache__
 env
-/migrations
-
 
 db.sqlite3
 migrations
+
+**static
+**migrations
