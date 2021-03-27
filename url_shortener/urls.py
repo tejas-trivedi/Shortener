@@ -20,4 +20,5 @@ from main_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Update, name="Make new"),
+    path('<str:token>', views.Page, name="home")
 ]

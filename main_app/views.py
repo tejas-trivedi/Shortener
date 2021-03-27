@@ -32,3 +32,9 @@ def Update(request):
             up_url = "Invalid URL"
 
     return render(request, 'home.html', {'form': form, 'url_list': url_list, 'up_url': up_url})
+
+
+
+def Page(request, token):
+    long_url = URL_Short.objects.filter(short_url=token)[0]
+    return redirect(long_url.long_url)

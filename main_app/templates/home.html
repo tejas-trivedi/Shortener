@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL_Shortener</title>
+
+    {% comment %} google fonts {% endcomment %}
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+</head>
+
+<body>
+    <h1>URL Shortener</h1>
+
+
+    <div class='wrapper'>
+        <form method="post">
+            {% csrf_token %} {% for field in form %}
+            <div>
+                {{ field.label_tag }} {{ field }}
+            </div>
+            {% endfor %}
+            <button type="submit" name="button">Save</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Long URL</th>
+                <th>Short URL Token</th>
+            </tr>
+            {% for url in url_list %}
+            <tr>
+                <td>{{url.long_url}}</td>
+                <td>{{url.short_url}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
